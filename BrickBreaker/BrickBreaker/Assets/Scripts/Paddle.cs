@@ -6,7 +6,7 @@ public class Paddle : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+	
 	}
 	
 	// Update is called once per frame
@@ -15,6 +15,7 @@ public class Paddle : MonoBehaviour {
         float mousePositionInUnits = ((Input.mousePosition.x / Screen.width) * 16) -8;
         Vector3 newPaddlePosition = new Vector3(mousePositionInUnits, gameObject.transform.position.y,
                                                 gameObject.transform.position.z);
+        newPaddlePosition.x = Mathf.Clamp(mousePositionInUnits, -7.35f, 7.35f);
 
         this.transform.position = newPaddlePosition;
     }
